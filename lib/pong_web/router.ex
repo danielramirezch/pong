@@ -8,6 +8,7 @@ defmodule PongWeb.Router do
     plug :put_root_layout, html: {PongWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug PongWeb.Plugs.Locale, "en"
   end
 
   pipeline :api do
@@ -18,6 +19,8 @@ defmodule PongWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/hello", HelloController, :index
+    get "/hello/:messenger", HelloController, :show
   end
 
   # Other scopes may use custom stacks.
