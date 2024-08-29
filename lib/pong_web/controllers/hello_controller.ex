@@ -2,7 +2,9 @@ defmodule PongWeb.HelloController do
   use PongWeb, :controller
 
   def index(conn, _params) do
-    render(conn, :index)
+    conn
+    |> put_layout(html: :admin)
+    |> render(:index)
   end
 
   def show(conn, %{"messenger" => messenger}) do
