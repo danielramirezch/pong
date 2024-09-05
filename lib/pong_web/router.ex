@@ -18,7 +18,7 @@ defmodule PongWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
-    get "/game", GameController, :game
+    live "/game", GameLive, :game
   end
 
   # Other scopes may use custom stacks.
